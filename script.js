@@ -65,48 +65,58 @@ function scrollToSection(sectionId) {
 // Profile image loading with fallbacks
 const profileImage = document.getElementById('profileImage');
 if (profileImage) {
-    // If src is already set in HTML, use it; otherwise try fallbacks
-    if (!profileImage.src || profileImage.src.endsWith(window.location.href) || profileImage.src.endsWith('/')) {
+    // Check if image failed to load and try alternatives
+    profileImage.addEventListener('error', function() {
         const imageSources = [
+            './assets/images/profile.jpg',
             'assets/images/profile.jpg',
+            './assets/images/profile.png',
             'assets/images/profile.png',
+            './assets/images/image.jpg',
             'assets/images/image.jpg',
+            './assets/images/image.png',
             'assets/images/image.png',
+            './profile.jpg',
             'profile.jpg',
-            'profile.jpeg',
+            './profile.png',
             'profile.png',
-            'photo.jpg',
-            'photo.jpeg',
-            'photo.png',
-            'image.jpg',
-            'image.jpeg',
-            'image.png',
-            'aminaprofile.jpg',
-            'aminaprofile.jpeg',
-            'aminaprofile.png'
+            './photo.jpg',
+            'photo.jpg'
         ];
         
         let currentIndex = 0;
+        const originalSrc = profileImage.src;
         
         function tryLoadImage() {
             if (currentIndex < imageSources.length) {
                 const img = new Image();
                 img.onload = function() {
                     profileImage.src = imageSources[currentIndex];
+                    profileImage.style.display = 'block';
                 };
                 img.onerror = function() {
                     currentIndex++;
-                    tryLoadImage();
+                    if (currentIndex < imageSources.length) {
+                        tryLoadImage();
+                    } else {
+                        // If no image found, keep trying or show placeholder
+                        console.log('Profile image not found');
+                    }
                 };
                 img.src = imageSources[currentIndex];
-            } else {
-                // If no image found, hide the image element
-                profileImage.style.display = 'none';
             }
         }
         
-        tryLoadImage();
-    }
+        // Only try alternatives if the original failed
+        if (originalSrc && !originalSrc.includes('data:')) {
+            tryLoadImage();
+        }
+    });
+    
+    // Ensure image is visible if it loads successfully
+    profileImage.addEventListener('load', function() {
+        profileImage.style.display = 'block';
+    });
 }
 
 // Add animation on scroll
