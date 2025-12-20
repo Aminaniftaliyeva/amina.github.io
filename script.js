@@ -68,13 +68,15 @@ if (profileImage) {
     // Check if image failed to load and try alternatives
     profileImage.addEventListener('error', function() {
         const imageSources = [
-            './assets/images/profile.jpg',
+            'assets/image.png',
+            './assets/image.png',
+            'assets/image.jpg',
+            './assets/image.jpg',
             'assets/images/profile.jpg',
-            './assets/images/profile.png',
+            './assets/images/profile.jpg',
             'assets/images/profile.png',
-            './assets/images/image.jpg',
+            './assets/images/profile.png',
             'assets/images/image.jpg',
-            './assets/images/image.png',
             'assets/images/image.png',
             './profile.jpg',
             'profile.jpg',
