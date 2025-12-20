@@ -51,21 +51,45 @@
         <div class="container">
             <div class="project-details">
                 <h2>Project Overview</h2>
-                <p>This project explores the fundamental workings of computer hardware and how different components interact to create a functional computing system.</p>
+                <p>This project demonstrates and explains the basic logic gates we built and tested on breadboards. Through hands-on experimentation, we learned how fundamental digital logic operations work at the hardware level, using transistors, resistors, LEDs, and push buttons to create functional logic gate circuits.</p>
                 
-                <h2>Key Features</h2>
+                <h2>Logic Gates</h2>
+                
+                <h3>NOT Gate</h3>
+                <p><strong>Definition:</strong> Outputs the opposite of the input.</p>
+                <p><strong>Implementation:</strong> Built on a breadboard using a transistor as the main switching component. When the input button is pressed (HIGH), the transistor switches off, making the output LOW. When the input is not pressed (LOW), the transistor allows current to flow, making the output HIGH. The LED connected to the output visually demonstrates the inverted signal.</p>
+                
+                <h3>AND Gate</h3>
+                <p><strong>Definition:</strong> Outputs 1 only if both inputs are 1.</p>
+                <p><strong>Implementation:</strong> Constructed using multiple transistors connected in series on the breadboard. Both input buttons must be pressed simultaneously (both inputs HIGH) for the output to be HIGH. If either input is LOW, the output remains LOW. The circuit uses 330 Ω and 2000 Ω resistors to control current flow and protect the components.</p>
+                
+                <h3>OR Gate</h3>
+                <p><strong>Definition:</strong> Outputs 1 if at least one input is 1.</p>
+                <p><strong>Implementation:</strong> Built with transistors connected in parallel configuration. When either input button is pressed (either input HIGH), the output becomes HIGH. The output LED lights up when at least one input is activated, demonstrating the OR logic operation.</p>
+                
+                <h3>NAND Gate</h3>
+                <p><strong>Definition:</strong> Outputs 0 only if both inputs are 1.</p>
+                <p><strong>Implementation:</strong> This gate was built in collaboration with other teams. The NAND gate combines AND logic with NOT logic, essentially inverting the output of an AND gate. When both inputs are HIGH, the output is LOW. For all other input combinations, the output is HIGH. The collaborative approach helped us understand the complexity of combining multiple logic operations.</p>
+                
+                <h3>XOR Gate</h3>
+                <p><strong>Definition:</strong> Outputs 1 if inputs are different.</p>
+                <p><strong>Implementation:</strong> Also built in collaboration with other teams, the XOR (Exclusive OR) gate is more complex, requiring multiple transistors and careful wiring. The output is HIGH only when the inputs differ (one HIGH and one LOW). When both inputs are the same (both HIGH or both LOW), the output is LOW. Working together made this challenging circuit more manageable and educational.</p>
+
+                <h2>Components Used</h2>
                 <ul class="project-list">
-                    <li>Understanding of CPU architecture and processing</li>
-                    <li>Memory systems and storage technologies</li>
-                    <li>Input/output devices and their functions</li>
-                    <li>System integration and component communication</li>
+                    <li><strong>Transistors:</strong> Used as switching components to control current flow based on input signals</li>
+                    <li><strong>Resistors:</strong> 330 Ω and 2000 Ω resistors to limit current and protect components</li>
+                    <li><strong>Jumper Wires:</strong> Connected components on the breadboard to create complete circuits</li>
+                    <li><strong>LEDs:</strong> Visual indicators to show the output state of each logic gate</li>
+                    <li><strong>Push Buttons:</strong> Small buttons used as input switches to test different logic gate combinations</li>
+                    <li><strong>Breadboards:</strong> Prototyping boards that allowed us to build and test circuits without soldering</li>
                 </ul>
 
-                <h2>Technologies & Tools</h2>
-                <p>This project involved research and documentation of hardware components, their specifications, and their roles in computer systems.</p>
+                <h2>Collaboration</h2>
+                <p>The NAND and XOR gates were built in collaboration with other teams. This collaborative approach made complex ideas easier and more fun to achieve. Working together allowed us to share knowledge, troubleshoot problems more effectively, and learn from different perspectives. The teamwork aspect of this project highlighted how collaboration can enhance learning and make challenging technical concepts more accessible.</p>
 
-                <h2>Project Details</h2>
-                <p>Add more details about your project here, including objectives, methodology, results, and any other relevant information.</p>
+                <h2>Conclusion</h2>
+                <p>Through this project, I learned how hardware logic gates work in practice, how to build them step by step on breadboards, and how collaboration with other teams can make complex ideas easier and more fun to achieve. The hands-on experience of physically constructing these circuits provided a deeper understanding of digital logic that goes beyond theoretical knowledge. Building each gate from basic components helped me appreciate the fundamental building blocks of modern computing systems.</p>
             </div>
         </div>
     </section>
