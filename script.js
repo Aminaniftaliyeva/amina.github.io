@@ -65,41 +65,45 @@ function scrollToSection(sectionId) {
 // Profile image loading with fallbacks
 const profileImage = document.getElementById('profileImage');
 if (profileImage) {
-    const imageSources = [
-        'profile.jpg',
-        'profile.jpeg',
-        'profile.png',
-        'photo.jpg',
-        'photo.jpeg',
-        'photo.png',
-        'image.jpg',
-        'image.jpeg',
-        'image.png',
-        'aminaprofile.jpg',
-        'aminaprofile.jpeg',
-        'aminaprofile.png'
-    ];
-    
-    let currentIndex = 0;
-    
-    function tryLoadImage() {
-        if (currentIndex < imageSources.length) {
-            const img = new Image();
-            img.onload = function() {
-                profileImage.src = imageSources[currentIndex];
-            };
-            img.onerror = function() {
-                currentIndex++;
-                tryLoadImage();
-            };
-            img.src = imageSources[currentIndex];
-        } else {
-            // If no image found, hide the image element
-            profileImage.style.display = 'none';
+    // If src is already set in HTML, use it; otherwise try fallbacks
+    if (!profileImage.src || profileImage.src.endsWith(window.location.href) || profileImage.src.endsWith('/')) {
+        const imageSources = [
+            'assets/images/image.png',
+            'profile.jpg',
+            'profile.jpeg',
+            'profile.png',
+            'photo.jpg',
+            'photo.jpeg',
+            'photo.png',
+            'image.jpg',
+            'image.jpeg',
+            'image.png',
+            'aminaprofile.jpg',
+            'aminaprofile.jpeg',
+            'aminaprofile.png'
+        ];
+        
+        let currentIndex = 0;
+        
+        function tryLoadImage() {
+            if (currentIndex < imageSources.length) {
+                const img = new Image();
+                img.onload = function() {
+                    profileImage.src = imageSources[currentIndex];
+                };
+                img.onerror = function() {
+                    currentIndex++;
+                    tryLoadImage();
+                };
+                img.src = imageSources[currentIndex];
+            } else {
+                // If no image found, hide the image element
+                profileImage.style.display = 'none';
+            }
         }
+        
+        tryLoadImage();
     }
-    
-    tryLoadImage();
 }
 
 // Add animation on scroll
